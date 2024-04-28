@@ -3,6 +3,8 @@ on: [push, pull_request]
 
 jobs:
   deploy:
+    env:
+      APP_BASE: /aa/
     if: github.ref == 'refs/heads/main'
     name: Deploy to GitHub pages
     permissions:
