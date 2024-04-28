@@ -19,4 +19,4 @@ mixin header(lang, path)
                         a(target='' href=base + i18n[lang].path_prefix + '#contact')= i18n[lang].nav.contact
                     li.menu-item
                         a(target='' href=(lang === 'de' ? base + 'en/' + path : base + path))= lang === 'de' ? 'EN' : 'DE'
-                a.scroll-to-top(href='#top' aria-label=i18n[lang].nav.scroll_to_top) ⇥
+                a.scroll-to-top(href='#top' aria-label=i18n[lang].nav.scroll_to_top) ↑
