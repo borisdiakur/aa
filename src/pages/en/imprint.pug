@@ -1,0 +1,14 @@
+include ../../includes/i18n
+include ../../includes/body
+include ../../includes/footer
+include ../../includes/head
+include ../../includes/header
+include ../../includes/imprint
+
+- var lang = 'en'
+
+doctype html
++head(lang)
+
++body(lang, '', 'imprint/')
+    +imprint(lang)

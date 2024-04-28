@@ -1,0 +1,14 @@
+include ../../includes/i18n
+include ../../includes/body
+include ../../includes/footer
+include ../../includes/head
+include ../../includes/header
+include ../../includes/home
+
+- var lang = 'en'
+
+doctype html
++head(lang)
+
++body(lang, 'home')
+    +home(lang)

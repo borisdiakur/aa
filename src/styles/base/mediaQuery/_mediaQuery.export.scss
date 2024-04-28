@@ -1,0 +1,5 @@
+:export {
+  @each $breakpointKey, $breakpointValue in $mq-breakpoints {
+    breakpoint_#{$breakpointKey}: $breakpointValue;
+  }
+}

@@ -1,0 +1,10 @@
+$colors: ()
+$colors: map-merge($colors, (white: #fffdfd))
+$colors: map-merge($colors, (theme: #fffdfd))
+$colors: map-merge($colors, (signal: #fc6663))
+$colors: map-merge($colors, (black: #000000))
+
+@function c($key)
+  @return map-get($colors, $key)
+
+@import color.export

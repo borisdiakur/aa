@@ -1,0 +1,22 @@
+// @paramString $lines      - Number (default: 1)
+// @paramString $fontSize   - Number (default: 16)
+// @paramString $lineHeight - Number (default: 20)
+=ellipsis($lines: 1, $fontSize: 16px, $lineHeight: 20px)
+
+  @if $lines > 1
+    // sass-lint:disable no-vendor-prefixes
+    display: block // fallback for non-webkit
+    display: -webkit-box // sass-lint:disable-line no-duplicate-properties
+    max-height: $lines * $lineHeight // fallback for non-webkit
+    font-size: $fontSize
+    line-height: $lineHeight
+    -webkit-line-clamp: $lines
+    -webkit-box-orient: vertical
+    overflow: hidden
+    text-overflow: ellipsis
+
+  @else
+    display: block
+    overflow: hidden
+    text-overflow: ellipsis
+    white-space: nowrap

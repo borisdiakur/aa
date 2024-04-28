@@ -1,0 +1,21 @@
+{
+  "name": "aa",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview --port=8888",
+    "trigger": "git commit --allow-empty -m \"🐶\" && git push"
+  },
+  "devDependencies": {
+    "prettier": "^2.5.1",
+    "sass": "^1.45.2",
+    "sass-mq": "^6.0.0-beta.1",
+    "vite": "^5.2.10",
+    "vite-plugin-pug": "^0.3.2"
+  },
+  "dependencies": {
+    "reset-css": "^5.0.1",
+    "smoothscroll-polyfill": "^0.4.4"
+  }
+}

@@ -1,0 +1,289 @@
+.header
+  background-color: inherit
+  position: fixed
+  width: 100%
+  z-index: 2
+  top: 0
+
+  a
+    text-decoration: none
+    font-family: $fontFamilyHeadlines
+
+  &::before
+    +fullsize
+    transition: opacity .3s linear
+    content: ''
+    position: absolute
+    box-shadow: rgba(0, 0, 0, 0.1) 0 0 80px
+    opacity: .5
+
+.header__wrapper
+  height: 133px
+  padding-left: map_get($spacing, md)
+  padding-right: map_get($spacing, md)
+  transition: height .5s ease
+  display: flex
+  justify-content: space-between
+  align-items: flex-end
+
+.header__logo
+  position: relative
+  height: 100%
+  width: 156px
+  margin: 0
+
+.header__logo-min
+  opacity: 0
+  transition: opacity .5s .2s ease
+
+.header__logo-max
+  position: absolute
+  left: 0
+  margin-left: -16px
+  transform-origin: top left
+  transition: transform 0.3s ease, opacity 0.3s ease
+
+.header__nav
+  height: 22px
+  position: relative
+  font-size: 24px
+  line-height: 32px
+
+  +respondFrom(wide)
+    bottom: 30%
+
+  +respondTo(wide)
+    position: absolute
+    top: 0
+    right: 0
+
+.menu__list
+  min-width: 130px
+
+  +respondTo(wide)
+    +spacingSquareInset(md)
+    transition: transform .3s ease
+    position: absolute
+    top: 0
+    bottom: 0
+    right: 0
+    background: c(black)
+    color: c(theme)
+    display: block
+    height: calc(100vh - #{map_get($spacing, md) + 128px})
+    padding-top: 128px
+    overflow-y: auto
+    z-index: 1
+    transform: translate(100%, 0)
+
+.menu-item
+  +spacingInline(3)
+  display: inline-block
+
+  &:last-child
+    margin-right: 0
+
+  +respondTo(wide)
+    display: block
+    margin: 0
+    +spacingStack(1)
+
+  &::before
+    content: none
+
+  a
+    position: relative
+    transition: top .1s ease-out, left .1s ease-out
+    display: inline-block
+    top: 0
+    left: 0
+
+    &:hover,
+    &:focus
+      &::after
+        +respondFrom(wide)
+          height: 4px
+
+        +respondTo(wide)
+          width: 4px
+
+    &:focus
+      &::after
+        background-color: c(signal)
+
+    &:before,
+    &::after
+      content: ''
+      position: absolute
+
+    +respondFrom(wide)
+      &:before
+        left: 0
+        top: 0
+        height: 60px
+        width: 100%
+
+      &::after
+        transition: height .1s ease-out, bottom .5s ease
+        background-color: c(black)
+        width: 100%
+        height: 0
+        bottom: -30px
+        left: 0
+
+    +respondTo(wide)
+      &::after
+        transition: width .1s ease-out
+        background-color: c(theme)
+        width: 0
+        height: 100%
+        top: -2px
+        left: -40px
+
+.menu__toggle-label--open
+  transition: bottom .3s ease
+  position: relative
+  bottom: -70px
+  right: map_get($spacing, md)
+
+  &::after
+    content: ''
+    position: absolute
+    transition: height .1s ease-out, bottom .5s ease
+    background-color: c(black)
+    width: 100%
+    height: 0
+    bottom: -31px
+    left: 0
+
+.menu__toggle
+  +square(60px)
+  display: block
+  position: absolute
+  right: 30px
+  cursor: pointer
+  opacity: 0
+  z-index: 2
+  top: 67px
+
+  &:hover
+    & ~ .menu__toggle-label--open
+      &::after
+        height: 4px
+
+  &:checked
+    +square(30px)
+
+    & ~ .menu__list
+      transform: translate(0, 0)
+
+    & ~ .menu__toggle-label--close
+      opacity: 1
+      transform: rotate(90deg)
+
+    &:hover
+      & ~ .menu__toggle-label--close
+        transform: rotate(180deg)
+
+.menu__toggle-label
+  font-family: $fontFamilyHeadlines
+
+.menu__toggle-label--close
+  transition: opacity .3s linear, transform .3s ease, top .5s ease
+  transform-origin: 10px 2px
+  position: absolute
+  opacity: 0
+  z-index: 2
+  top: 82px
+  right: 58px
+  pointer-events: none
+
+  &::before,
+  &::after
+    content: ''
+    background-color: c(theme)
+    width: 20px
+    height: 4px
+    position: absolute
+
+  &::before
+    transform: rotate(45deg)
+
+  &::after
+    transform: rotate(-45deg)
+
+.scroll-to-top
+  transition: opacity .2s linear, bottom .3s ease
+  opacity: 0
+  pointer-events: none
+  transform: rotate(-90deg)
+  position: fixed
+  bottom: 10px
+  right: 27px
+  font-size: 22px
+  width: 36px
+  height: 36px
+  line-height: 40px
+  display: inline-block
+  text-align: center
+  z-index: 1
+  box-shadow: rgba(0, 0, 0, 0.1) 0 0 20px
+
+  &::after
+    +fullsize
+    position: absolute
+    content: ''
+    background-color: c(theme)
+    z-index: -1
+    opacity: .5
+
+  &:focus
+    &::after
+      background-color: c(signal)
+
+.header--minimized
+  &::before
+    opacity: 1
+
+  .header__wrapper
+    height: 60px
+
+  +respondFrom(wide)
+    .header__nav
+      bottom: 38%
+
+    .menu-item > a
+      &::before
+        height: 43px
+
+      &::after
+        bottom: -13px
+
+  .piano
+    width: 30px
+
+  .menu__toggle
+    top: 14px
+    height: 40px
+
+  .menu__toggle-label--open
+    bottom: -15px
+
+    &::after
+      bottom: -13px
+
+  +respondTo(wide)
+    .menu__toggle-label--close
+      top: 30px
+
+    .header__logo-max
+      opacity: 0
+      transform: scale(0.8) translateY(-40%)
+
+    .header__logo-min
+      opacity: 1
+
+  .scroll-to-top
+    opacity: 1
+    pointer-events: inherit
+    bottom: 26px

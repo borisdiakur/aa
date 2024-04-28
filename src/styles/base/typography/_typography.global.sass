@@ -1,0 +1,60 @@
+$fontFamily: 'Libre Baskerville', serif
+$fontFamilyHeadlines: 'Big Shoulders', sans-serif
+
+// Font sizes
+$fontSizes: (sm: 12px, md: 14px, lg: 22px)
+
+$fontSizes: map-merge($fontSizes, (h1: 120px))
+$fontSizes: map-merge($fontSizes, (h2: 88px))
+$fontSizes: map-merge($fontSizes, (h3: 32px))
+
+// Line heights sizes
+$lineHeights: (sm: 18px, md: 20px, lg: 32px)
+
+$lineHeights: map-merge($lineHeights, (h1: 1.2))
+$lineHeights: map-merge($lineHeights, (h2: 1.2))
+$lineHeights: map-merge($lineHeights, (h3: 1.2))
+
+// Negative top margins on pseude element (used to circumvent line heigh coliding)
+$negTopMargins: ()
+$negTopMargins: map-merge($negTopMargins, (h1: -1px))
+$negTopMargins: map-merge($negTopMargins, (h2: -1px))
+$negTopMargins: map-merge($negTopMargins, (h3: -1px))
+
+// Negative bottom margins on pseude element (used to circumvent line heigh coliding)
+$negBottomMargins: ()
+$negBottomMargins: map-merge($negBottomMargins, (h1: -1px))
+$negBottomMargins: map-merge($negBottomMargins, (h2: -3px))
+$negBottomMargins: map-merge($negBottomMargins, (h3: -3px))
+
+
+=typographyCaps
+  text-transform: uppercase
+  letter-spacing: .075em
+
+=typographyBold
+  font-weight: 700
+
+=typographyBreakWord
+  word-wrap: break-word
+  word-break: break-word
+
+=headline($level)
+  +typographyBreakWord
+  font-family: $fontFamilyHeadlines
+  font-weight: 400
+  margin: 0
+  font-size: map-get($fontSizes, "h" + $level)
+  line-height: map-get($lineHeights, "h" + $level)
+
+  @if map-has-key($negTopMargins, "h" + $level)
+    &::before
+      content: ''
+      display: block
+      margin-top: map-get($negTopMargins, "h" + $level)
+
+  @if map-has-key($negBottomMargins, "h" + $level)
+    &::after
+      content: ''
+      display: block
+      margin-bottom: map-get($negBottomMargins, "h" + $level)

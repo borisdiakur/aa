@@ -1,0 +1,164 @@
+$maxContentWidth: 620px
+$maxContentWrapperWidth: 1024px
+$headerMaxHeight: 133px
+
+.base-layout
+  background: transparent
+
+  .header
+    background-color: c(white)
+
+  .main
+    box-shadow: inset rgba(0, 0, 0, 0.1) 0 0 400px
+    padding-bottom: 100px
+
+  &::before
+    +fullsize
+    content: ''
+    position: fixed
+    background: c(theme)
+    z-index: -1
+
+  .wp-block-spacer
+    +spacingStack(md)
+    height: 0
+    clear: both
+
+  .content-wrapper
+    padding-top: $headerMaxHeight
+
+  .blog-author,
+  .article-h1,
+  .wp-block-cover-image .wp-block-cover-image-text,
+  .article-body > *:not(.alignfull)
+    max-width: $maxContentWidth
+    margin-left: auto
+    margin-right: auto
+    padding-left: #{map_get($spacing, md)}
+    padding-right: #{map_get($spacing, md)}
+
+    &.wp-block-gallery
+      max-width: $maxContentWidth
+
+    &.wp-block-separator
+      padding: 0
+      border: solid 2px c(black)
+      width: calc(100% - #{map_get($spacing, md) * 2})
+
+  .wp-block-gallery
+    .blocks-gallery-item
+      position: relative
+      margin: 0
+
+      &:after
+        +fullsize
+        content: ''
+        position: absolute
+        box-shadow: c(theme) 0 0 0 $spacingBaseUnit
+
+  .article-body
+    overflow: hidden
+
+    > p
+      text-align: justify
+
+    > .columns
+      +respondFrom(tablet)
+        column-count: 2
+        column-gap: map_get($spacing, md)
+
+        &[style*="text-align:center"]
+          column-count: 1
+
+  .article-h1
+    margin: 60px auto 40px
+
+  .blocks-gallery-item::before
+    content: none
+
+  .wp-block-gallery
+    +spacingStack(md)
+
+    .blocks-gallery-item figcaption
+      padding: 0 0 #{map_get($spacing, sm)}
+
+  .wp-block-embed
+    iframe
+      max-width: 100%
+      margin: 0 auto
+      display: block
+
+  .article-body
+    .wp-block-image
+      margin-bottom: 20px
+      width: 100%
+      max-width: $maxContentWrapperWidth
+      padding: 0
+
+      img
+        padding-top: $spacingBaseUnit
+        padding-bottom: $spacingBaseUnit
+        max-width: calc(100% - #{map_get($spacing, md)})
+
+      &.alignright
+        text-align: right
+
+      &.alignleft
+        text-align: left
+
+      &.alignwide
+        max-width: $maxContentWidth
+        margin-left: auto
+        margin-right: auto
+
+        img
+          min-width: 100%
+
+      +respondFrom(tablet)
+        &.alignright img
+          float: right
+          padding-left: 30px
+
+        &.alignleft img
+          float: left
+          padding-right: 30px
+
+  .wp-block-cover-image
+    +spacingStack(md)
+    display: flex
+    justify-content: flex-start
+    align-items: center
+    background-repeat: no-repeat
+    background-position: center
+    background-size: cover
+    height: 760px
+
+    &:before
+      display: none
+
+    &:after
+      content: ''
+      padding-bottom: 30%
+
+    .wp-block-cover-image-text
+      max-width: $maxContentWidth
+      z-index: 1
+      margin-bottom: 0
+      padding-top: $headerMaxHeight
+
+    &.has-left-content .wp-block-cover-image-text
+      margin-left: auto
+      width: 100%
+
+      +respondTo(phablet)
+        padding-right: 50%
+
+  .light > p
+    color: c(theme)
+
+  .dark > p
+    color: c(black)
+
+  p[style*="text-align:left"],
+  p[style*="text-align:right"]
+    min-width: 50px

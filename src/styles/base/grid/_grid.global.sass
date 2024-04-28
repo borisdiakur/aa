@@ -1,0 +1,69 @@
+// sass-lint:disable empty-line-between-blocks
+
+@use "sass:math"
+
+$gridColumns: 12
+$gridDefaultGutterWidth: 0
+
+=floatGridColumns($class, $i: 1, $list: '.col-#{$class}-#{$i}')
+  @for $i from 1 + 1 through $gridColumns
+    $list: '#{$list}, .col-#{$class}-#{$i}'
+
+  #{$list}
+    float: left
+
+=calcGridColumn($index, $class, $type)
+  @if $type == width and $index > 0
+    .col-#{$class}-#{$index}
+      width: percentage(math.div($index, $gridColumns))
+  @if $type == push and $index > 0
+    .col-#{$class}-push-#{$index}
+      left: percentage(math.div($index, $gridColumns))
+  @if $type == push and $index == 0
+    .col-#{$class}-push-0
+      left: auto
+  @if $type == pull and $index > 0
+    .col-#{$class}-pull-#{$index}
+      right: percentage(math.div($index, $gridColumns))
+  @if $type == pull and $index == 0
+    .col-#{$class}-pull-0
+      right: auto
+  @if $type == offset
+    .col-#{$class}-offset-#{$index}
+      margin-left: percentage(math.div($index, $gridColumns))
+
+// [converter] This is defined recursively in LESS, but Sass supports real loops
+=loopGridColumns($columns, $class, $type)
+  @for $i from 0 through $columns
+    +calcGridColumn($i, $class, $type)
+
+// Create grid for specific class
+=makeGrid($class, $width: true, $pull: true, $push: true, $offset: true)
+  +floatGridColumns($class)
+
+  @if $width
+    +loopGridColumns($gridColumns, $class, width)
+  @if $pull
+    +loopGridColumns($gridColumns, $class, pull)
+  @if $push
+    +loopGridColumns($gridColumns, $class, push)
+  @if $offset
+    +loopGridColumns($gridColumns, $class, offset)
+
+=makeColumn($gutter: $gridDefaultGutterWidth)
+  +clear
+
+  position: relative
+  min-height: 1px
+
+  @if $gutter
+    padding-left: math.div($gutter, 2)
+    padding-right: math.div($gutter, 2)
+
+// Creates a wrapper for a series of columns
+=makeRow($gutter: $gridDefaultGutterWidth)
+  +clear
+
+  @if $gutter
+    margin-left: math.div($gutter, -2)
+    margin-right: math.div($gutter, -2)

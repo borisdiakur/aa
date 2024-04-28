@@ -1,0 +1,9 @@
+mixin footer(lang)
+    - lang = lang || 'de'
+    footer.footer
+        div
+            a(href=base + i18n[lang].path_prefix + 'imprint/')= i18n[lang].footer.imprint
+            br.hide-from-phablet
+            span.hide-to-phablet |
+            a(href=base + i18n[lang].path_prefix + 'privacy/')= i18n[lang].footer.privacy_policy
+        .footer__copyright-notice= i18n[lang].footer.copyright_notice

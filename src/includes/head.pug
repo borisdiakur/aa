@@ -1,0 +1,52 @@
+mixin head(lang)
+    - lang = lang || 'de'
+    head
+        script.
+          document.documentElement.classList.remove('no-js')
+        meta(charset='UTF-8')
+        title ANDREY & ANNA
+
+        meta(property='og:site_name' content='ANDREY & ANNA')
+        meta(property='og:locale' content=lang === 'de' ? 'de-DE' : 'en-GB')
+        meta(property='og:title' content='ANDREY & ANNA')
+        meta(property='og:url' content='https://andreyanna.de')
+        meta(property='og:type' content='website')
+        meta(property='og:image' content='https://andreyanna.de/images/aa_poster.jpg')
+        meta(property='og:description' content=i18n[lang].meta.description)
+
+        script(type='application/ld+json').
+            [
+                {
+                    "@context": "https://schema.org",
+                    "@type": "WebSite",
+                    "name": "andreyanna",
+                    "url": "https://andreyanna.de"
+                },
+                {
+                    "@context": "https://schema.org",
+                    "@type": "Person",
+                    "url": "https://andreyanna.de",
+                    "contactPoint": [
+                        {
+                            "@type": "ContactPoint",
+                            "url": "https://andreyanna.de/#contact",
+                            "contactType": "customer support",
+                            "availableLanguage": ["German", "English", "Japanese"]
+                        }
+                    ]
+                }
+            ]
+        meta(name='description' content=i18n[lang].meta.description)
+        meta(http-equiv='Content-Type' content='text/html; charset=UTF-8')
+        meta(http-equiv='X-UA-Compatible' content='IE=edge')
+        meta(name='viewport' content='width=device-width, initial-scale=1.0')
+
+        link(rel='icon' type='image/png' sizes='32x32' href='/favicon-32x32.png')
+        link(rel='icon' type='image/png' sizes='16x16' href='/favicon-16x16.png')
+
+        link(rel='dns-prefetch' href='//s.w.org')
+        link(rel='canonical' href='https://andreyanna.de/')
+        link(rel='shortlink' href='https://andreyanna.de/')
+        link(hreflang='de' href='https://andreyanna.de/' rel='alternate')
+        link(hreflang='en' href='https://andreyanna.de/en/' rel='alternate')
+        link(hreflang='x-default' href='https://andreyanna.de/' rel='alternate')

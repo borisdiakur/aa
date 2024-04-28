@@ -1,0 +1,51 @@
+@import '../../../../node_modules/reset-css/sass/reset'
+
+body
+  width: 100%
+  overflow-x: hidden
+  line-height: 2
+  background-color: c(theme)
+
+html
+  background-color: c(black)
+
+::selection
+  background-color: c(signal)
+
+::-moz-selection
+  background-color: c(signal)
+
+a:focus
+  outline: none
+  color: c(signal)
+
+p,
+pre,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6
+  margin: 0
+
+a
+  color: inherit
+
+strong,
+b
+  font-weight: bold
+
+em
+  font-style: italic
+
+input[type] // sass-lint:disable-line no-qualifying-elements
+  appearance: none
+
+ol,
+ul
+  li
+    font-size: inherit
+
+[tabindex="-1"]
+  outline: none

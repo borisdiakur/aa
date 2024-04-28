@@ -1,0 +1,70 @@
+@import typography.global
+
+body
+  font-family: $fontFamily
+
+a
+  cursor: pointer
+
+  &:hover
+    text-decoration: none
+
+p,
+hr,
+ul,
+ol,
+figure
+  +spacingStack(md)
+
+ul
+  list-style-type: none
+
+  > li
+    position: relative
+
+    &::before
+      content: '•'
+      position: absolute
+      left: -14px
+      font-size: 1.05em
+
+ol
+  list-style-type: decimal
+
+li
+  display: list-item
+  list-style-position: outside
+  margin-left: 14px
+
+strong
+  +typographyBold
+
+h1
+  +headline(1)
+  +spacingStack(md)
+
+h2
+  +headline(2)
+  +spacingStack(sm)
+
+h3
+  +headline(3)
+  +spacingStack(sm)
+
+.typography-caps
+  +typographyCaps
+
+.typography-bold
+  +typographyBold
+
+.headline1
+  +headline(1)
+
+.headline2
+  +headline(2)
+
+.headline3
+  +headline(3)
+
+.wp-block-cover-image-text
+  +headline(2)

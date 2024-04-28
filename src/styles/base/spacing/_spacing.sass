@@ -1,0 +1,77 @@
+@use "sass:math"
+
+$spacingBaseUnit: 10px
+
+$spacing: ()
+$spacing: map-merge($spacing, (sm: $spacingBaseUnit * 2))
+$spacing: map-merge($spacing, (md: $spacingBaseUnit * 4))
+$spacing: map-merge($spacing, (lg: $spacingBaseUnit * 6))
+$spacing: map-merge($spacing, (xl: $spacingBaseUnit * 8))
+
+=spacingSquareInset($amount)
+  @if type-of($amount) != number
+    @if map-has-key($spacing, $amount)
+      padding: map-get($spacing, $amount)
+    @else
+      @error 'Invalid key for spacingSquareInset mixin: #{$amount}'
+  @else
+    padding: $amount * $spacingBaseUnit
+
+=spacingSquishedInset($amount)
+  @if type-of($amount) != number
+    @if map-has-key($spacing, $amount)
+      $p: map-get($spacing, $amount)
+      padding: math.div($p, 2) $p
+    @else
+      @error 'Invalid key for spacingSquishedInset mixin: #{$amount}'
+  @else
+    $p: ($amount * $spacingBaseUnit)
+    padding: math.div($p, 2) $p
+
+=spacingStretchedInset($amount)
+  @if type-of($amount) != number
+    @if map-has-key($spacing, $amount)
+      $p: map-get($spacing, $amount)
+      padding: $p math.div($p, 2)
+    @else
+      @error 'Invalid key for spacingStretchedInset mixin: #{$amount}'
+  @else
+    $p: ($amount * $spacingBaseUnit)
+    padding: $p math.div($p, 2)
+
+=spacingStack($amount)
+  @if type-of($amount) != number
+    @if map-has-key($spacing, $amount)
+      margin-bottom: map-get($spacing, $amount)
+    @else
+      @error 'Invalid key for spacingStack mixin: #{$amount}'
+  @else
+    margin-bottom: $amount * $spacingBaseUnit
+
+=spacingInline($amount, $negate: false)
+  @if type-of($amount) != number
+    @if map-has-key($spacing, $amount)
+      @if $negate
+        margin-right: -1 * map-get($spacing, $amount)
+      @else
+        margin-right: map-get($spacing, $amount)
+    @else
+      @error 'Invalid key for spacingInline mixin: #{$amount}'
+  @else
+    margin-right: $amount * $spacingBaseUnit
+
+@each $sizeKey, $sizeValue in $spacing
+  .spacing-square-inset-#{$sizeKey}
+    +spacingSquareInset($sizeKey)
+
+  .spacing-squished-inset-#{$sizeKey}
+    +spacingSquishedInset($sizeKey)
+
+  .spacing-stretched-inset-#{$sizeKey}
+    +spacingStretchedInset($sizeKey)
+
+  .spacing-stack-#{$sizeKey}
+    +spacingStack($sizeKey)
+
+  .spacing-inline-#{$sizeKey}
+    +spacingInline($sizeKey)

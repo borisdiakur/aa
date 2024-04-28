@@ -1,0 +1,16 @@
+@import 'grid.global'
+
+// sass-lint:disable variable-name-format
+
+.row
+  +makeRow
+
+.col
+  +makeColumn
+
+@each $breakpoint, $size in $mq-breakpoints
+  @if $breakpoint == 'mobile'
+    +makeGrid($breakpoint, $push: false, $pull: false)
+  @else
+    +respondFrom($breakpoint)
+      +makeGrid($breakpoint, $push: false, $pull: false)

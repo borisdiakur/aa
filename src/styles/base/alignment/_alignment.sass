@@ -1,0 +1,57 @@
+=alignTransform
+  position: absolute
+  left: 50%
+  top: 50%
+  transform: translate(-50%, -50%)
+
+.align-transform
+  +alignTransform
+
+=alignFlex
+  display: flex
+  flex-direction: row
+  justify-content: center
+  align-items: center
+
+=alignFlexT
+  align-items: flex-start
+
+=alignFlexB
+  align-items: flex-end
+
+=alignFlexL
+  justify-content: flex-start
+
+=alignFlexR
+  justify-content: flex-end
+
+.align-flex
+  +alignFlex
+
+  &.align-flex--t,
+  &.align-flex--tr,
+  &.align-flex--tl
+    +alignFlexT
+
+  &.align-flex--b,
+  &.align-flex--br,
+  &.align-flex--bl
+    +alignFlexB
+
+  &.align-flex--l,
+  &.align-flex--tl,
+  &.align-flex--bl
+    +alignFlexL
+
+  &.align-flex--r,
+  &.align-flex--tr,
+  &.align-flex--br
+    +alignFlexR
+
+  &.align-flex--space-between
+    justify-content: space-between
+    align-items: baseline
+
+  &.align-flex--space-around
+    justify-content: space-around
+    align-items: baseline

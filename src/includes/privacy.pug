@@ -1,0 +1,52 @@
+mixin privacy(lang)
+    - lang = lang || 'de'
+    article
+        section.article-content
+            h2.article-h1= i18n[lang].privacy_policy.heading
+            .article-body
+                p= i18n[lang].privacy_policy.intro
+                h3= i18n[lang].privacy_policy.responsible_for_data_processing
+                p
+                    em Andrey Glazshneider & Anna Bielova
+                    br
+                    em hallo@andreyanna.de
+                    br
+                    em= 'andreyanna.de/' + i18n[lang].path_prefix + 'imprint'
+                h3= i18n[lang].privacy_policy.webhosting.heading
+                p= i18n[lang].privacy_policy.webhosting.provider_intro
+                p
+                    em GitHub Inc., 88 Colin P Kelly Jr Street San Francisco, CA 94107 United States
+                p!= i18n[lang].privacy_policy.webhosting.provider_privacy_policy
+                p!= i18n[lang].privacy_policy.webhosting.provider_outro
+                h3= i18n[lang].privacy_policy.storage.heading
+                p= i18n[lang].privacy_policy.storage.text
+                h3= i18n[lang].privacy_policy.contact_options.heading
+                p!= i18n[lang].privacy_policy.contact_options.text
+                h3= i18n[lang].privacy_policy.gdpr.heading
+                p= i18n[lang].privacy_policy.gdpr.intro
+                ul
+                    each item in i18n[lang].privacy_policy.gdpr.rights
+                        li
+                            strong= item.heading
+                            span= ': '
+                            span= item.text
+                            if (item.sub_list)
+                                ul
+                                    each sub_item in item.sub_list
+                                        li= sub_item
+                h3= i18n[lang].privacy_policy.withdrawl.heading
+                p!= i18n[lang].privacy_policy.withdrawl.text
+                h3= i18n[lang].privacy_policy.safety_measures.heading
+                p= i18n[lang].privacy_policy.safety_measures.text
+                h3= i18n[lang].privacy_policy.valid_until.heading
+                p= i18n[lang].privacy_policy.valid_until.text
+                p
+                    span= i18n[lang].privacy_policy.created_with.this_privacy_policy
+                    span= ' '
+                    a.externalLink(href='https://privacy.sos-right.com' target='_blank' rel='noopener') SOS Recht.
+                    span= ' '
+                    a(href='https://datenschutz.sos-recht.de/dsgvo-datenschutz-generator/' target='_blank')= i18n[lang].privacy_policy.created_with.here
+                    span= ' ' + i18n[lang].privacy_policy.created_with.is_an_offer_of + ' '
+                    a.externalLink(href='https://www.mueller-roessner.net/' target='_blank') MMR Müller Müller Rößner Rechtsanwälte Partnerschaft
+                    span= ' ' + i18n[lang].privacy_policy.created_with.based_in
+                    | .

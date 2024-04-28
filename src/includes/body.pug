@@ -1,0 +1,10 @@
+mixin body(lang, cl, path)
+    - lang = lang || 'de'
+    body#top.page-template-default.page.page-id-2.base-layout(tabindex='-1', class=cl)
+        +header(lang, path)
+        main#content.main
+            .wrapper
+                .content-wrapper
+                    if block
+                        block
+        +footer(lang)

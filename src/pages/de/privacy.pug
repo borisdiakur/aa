@@ -1,0 +1,14 @@
+include ../../includes/i18n
+include ../../includes/body
+include ../../includes/footer
+include ../../includes/head
+include ../../includes/header
+include ../../includes/privacy
+
+- var lang = 'de'
+
+doctype html
++head(lang)
+
++body(lang, '', 'privacy/')
+    +privacy(lang)

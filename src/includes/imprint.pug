@@ -1,0 +1,16 @@
+mixin imprint(lang)
+    - lang = lang || 'de'
+    article
+        section.article-content
+            h1.article-h1= i18n[lang].imprint.heading
+            .article-body
+                p= i18n[lang].imprint.responsible_for_content + ':'
+                p
+                    em Andrey Glazshneyder & Anna Bielova
+                h2= i18n[lang].imprint.disclaimer
+                h3= '1. ' + i18n[lang].imprint.content.heading
+                p= i18n[lang].imprint.content.text
+                h3= '2. ' + i18n[lang].imprint.referrals_and_links.heading
+                p= i18n[lang].imprint.referrals_and_links.text
+                h3= '3. ' + i18n[lang].imprint.copyright.heading
+                p= i18n[lang].imprint.copyright.text
