@@ -4,8 +4,8 @@ mixin header(lang, path)
     header#header.header
         .header__wrapper
             a.header__logo(role='banner' href=base + i18n[lang].path_prefix aria-label='ANDREY & ANNA' rel='home')
-                img.header__logo-min(src='/favicon.svg' alt='' width='60px' height='60px' )
-                img.header__logo-max(src='/images/logo_header.svg' alt='' width='156px' height='177px' )
+                img.header__logo-min(src='favicon.svg' alt='' width='60px' height='60px' )
+                img.header__logo-max(src='images/logo_header.svg' alt='' width='156px' height='177px' )
             nav.header__nav
                 input#menu__toggle.menu__toggle.hide-from-wide(type='checkbox', aria-label=i18n[lang].nav.toggle_menu)
                 span.menu__toggle-label.menu__toggle-label--open.hide-from-wide(lang="en-GB") Menu
