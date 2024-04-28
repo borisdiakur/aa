@@ -2,7 +2,7 @@ mixin head(lang)
     - lang = lang || 'de'
     head
         meta(charset='UTF-8')
-        base(href="/aa/")
+        base(href=locals.base)
         script.
           document.documentElement.classList.remove('no-js')
         title ANDREY & ANNA
