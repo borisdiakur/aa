@@ -1,3 +1,5 @@
+include socialEmbeds.pug
+
 mixin home(lang)
     - lang = lang || 'de'
     article
@@ -23,6 +25,15 @@ mixin home(lang)
                 figure.wp-block-image.alignright
                     img.wp-image-32(src='images/andrey_dancers.jpg' alt='')
                 p!= i18n[lang].home.andrey.about_4
+
+                h3
+                    = i18n[lang].home.andrey.performances
+
+                .wp-block-image
+                    .videos
+                        +youtube('F8QHI7sT61Q')
+                        +youtube('nvYTgp1s-r0')
+                        +youtube('BZt_9_tkR0s')
 
                 .wp-block-spacer(style='height: 20px')
 
@@ -53,7 +64,6 @@ mixin home(lang)
                 figure.wp-block-image.alignright
                     img.wp-image-32(src='images/anna_gratitude.jpg' alt='')
                 p!= i18n[lang].home.anna.about_7
-
 
                 .wp-block-spacer(style='height: 60px')
 

@@ -1,0 +1,9 @@
+mixin insta(id)
+	blockquote.instagram-media(data-instgrm-captioned='' data-instgrm-permalink='https://www.instagram.com/tv/' + id + '/?utm_source=ig_embed&utm_campaign=loading' data-instgrm-version='14')&attributes(attributes)
+
+mixin youtube(id)
+	iframe(width="315" height="560" src='https://www.youtube.com/embed/' + id title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen='')&attributes(attributes)
+
+mixin twitter(id)
+	blockquote.twitter-tweet
+		a(href='https://twitter.com/nikitadiakur/status/' + id)
