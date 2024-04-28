@@ -5,6 +5,8 @@ jobs:
   deploy:
     if: github.ref == 'refs/heads/main'
     name: Deploy to GitHub pages
+    permissions:
+      contents: write
     runs-on: ubuntu-latest
     strategy:
       matrix:
