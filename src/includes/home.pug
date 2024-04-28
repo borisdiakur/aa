@@ -28,15 +28,32 @@ mixin home(lang)
 
                 h2#anna= i18n[lang].home.anna.heading
                 figure.wp-block-image.alignleft
-                    img.wp-image-32(src='images/anna_portrait.jpg' alt='')
+                    img.wp-image-32(src='images/anna_portrait.jpg' alt='' width='300px')
                 p!= i18n[lang].home.anna.about_1
 
                 figure.wp-block-image.alignright
-                    img.wp-image-32(src='images/anna_jump.jpg' alt='')
+                    img.wp-image-32(src='images/anna_jump.jpg' alt='' width='400px')
                 p!= i18n[lang].home.anna.about_2
 
+                figure.wp-block-image.alignleft
+                    img.wp-image-32(src='images/anna_cat.jpg' alt='')
+                p!= i18n[lang].home.anna.about_3
+
                 figure.wp-block-image.alignright
-                    img.wp-image-32(src='images/anna_studio.jpg' alt='')
+                    img.wp-image-32(src='images/anna_pose.jpg' alt='')
+                p!= i18n[lang].home.anna.about_4
+                p!= i18n[lang].home.anna.about_5
+
+                .wp-block-spacer(style='height: 0px')
+
+                figure.wp-block-image.alignleft
+                    img.wp-image-32(src='images/anna_studio.jpg' alt='' width='400px')
+                p!= i18n[lang].home.anna.about_6
+
+                figure.wp-block-image.alignright
+                    img.wp-image-32(src='images/anna_gratitude.jpg' alt='')
+                p!= i18n[lang].home.anna.about_7
+
 
                 .wp-block-spacer(style='height: 60px')
 
