@@ -5,14 +5,14 @@ mixin head(lang)
         base(href=locals.base)
         script.
           document.documentElement.classList.remove('no-js')
-        title ANDREY & ANNA
+        title GLAZSHNEYDER
 
-        meta(property='og:site_name' content='ANDREY & ANNA')
+        meta(property='og:site_name' content='GLAZSHNEYDER')
         meta(property='og:locale' content=lang === 'de' ? 'de-DE' : 'en-GB')
-        meta(property='og:title' content='ANDREY & ANNA')
-        meta(property='og:url' content='https://andreyanna.de')
+        meta(property='og:title' content='GLAZSHNEYDER')
+        meta(property='og:url' content='https://glazshneyder.com')
         meta(property='og:type' content='website')
-        meta(property='og:image' content='https://andreyanna.de/images/aa_poster.jpg')
+        meta(property='og:image' content='https://glazshneyder.com/images/anna_andrey.jpg')
         meta(property='og:description' content=i18n[lang].meta.description)
 
         script(type='application/ld+json').
@@ -20,19 +20,19 @@ mixin head(lang)
                 {
                     "@context": "https://schema.org",
                     "@type": "WebSite",
-                    "name": "andreyanna",
-                    "url": "https://andreyanna.de"
+                    "name": "glazshneyder",
+                    "url": "https://glazshneyder.com"
                 },
                 {
                     "@context": "https://schema.org",
                     "@type": "Person",
-                    "url": "https://andreyanna.de",
+                    "url": "https://glazshneyder.com",
                     "contactPoint": [
                         {
                             "@type": "ContactPoint",
-                            "url": "https://andreyanna.de/#contact",
+                            "url": "https://glazshneyder.com/#contact",
                             "contactType": "customer support",
-                            "availableLanguage": ["German", "English", "Japanese"]
+                            "availableLanguage": ["German", "English"]
                         }
                     ]
                 }
@@ -46,8 +46,8 @@ mixin head(lang)
         link(rel='icon' type='image/png' sizes='16x16' href='favicon-16x16.png')
 
         link(rel='dns-prefetch' href='//s.w.org')
-        link(rel='canonical' href='https://andreyanna.de/')
-        link(rel='shortlink' href='https://andreyanna.de/')
-        link(hreflang='de' href='https://andreyanna.de/' rel='alternate')
-        link(hreflang='en' href='https://andreyanna.de/en/' rel='alternate')
-        link(hreflang='x-default' href='https://andreyanna.de/' rel='alternate')
+        link(rel='canonical' href='https://glazshneyder.com/')
+        link(rel='shortlink' href='https://glazshneyder.com/')
+        link(hreflang='de' href='https://glazshneyder.com/' rel='alternate')
+        link(hreflang='en' href='https://glazshneyder.com/en/' rel='alternate')
+        link(hreflang='x-default' href='https://glazshneyder.com/' rel='alternate')
