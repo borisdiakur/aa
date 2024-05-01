@@ -1,5 +1,5 @@
-const { resolve } = require('path')
-const { defineConfig } = require('vite')
+import { resolve } from 'path'
+import { defineConfig } from 'vite'
 import vitePluginPug from 'vite-plugin-pug'
 
 const base = process.env.APP_BASE || '/'
