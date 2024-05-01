@@ -8,7 +8,8 @@ include ../../includes/home
 - var lang = 'de'
 
 doctype html
-+head(lang)
+html(lang=lang)
+    +head(lang)
 
-+body(lang, 'home')
-    +home(lang)
+    +body(lang, 'home')
+        +home(lang)

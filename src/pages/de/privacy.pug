@@ -8,7 +8,8 @@ include ../../includes/privacy
 - var lang = 'de'
 
 doctype html
-+head(lang)
+html(lang=lang)
+    +head(lang)
 
-+body(lang, '', 'privacy/')
-    +privacy(lang)
+    +body(lang, '', 'privacy/')
+        +privacy(lang)

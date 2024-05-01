@@ -8,7 +8,8 @@ include ../../includes/imprint
 - var lang = 'en'
 
 doctype html
-+head(lang)
+html(lang=lang)
+    +head(lang)
 
-+body(lang, '', 'imprint/')
-    +imprint(lang)
+    +body(lang, '', 'imprint/')
+        +imprint(lang)
